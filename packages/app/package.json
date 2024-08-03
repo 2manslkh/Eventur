@@ -1,0 +1,63 @@
+{
+  "name": "app",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "scripts": {
+    "dev": "vite dev --host 0.0.0.0",
+    "build": "vite build",
+    "preview": "vite preview",
+    "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json && eslint .  --fix",
+    "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
+    "lint": "prettier --plugin-search-dir . --check . && eslint .",
+    "format": "prettier --plugin-search-dir . --write .",
+    "wagmi": "pnpm exec wagmi generate"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3.1.0",
+    "@sveltejs/adapter-auto": "^3.2.2",
+    "@sveltejs/kit": "^2.5.19",
+    "@types/node": "^20.14.10",
+    "@typescript-eslint/eslint-plugin": "^7.0.0",
+    "@typescript-eslint/parser": "^7.0.0",
+    "daisyui": "4.12.10",
+    "eslint": "^8.57.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-svelte": "^2.43.0",
+    "globals": "^15.9.0",
+    "prettier": "^3.3.3",
+    "prettier-plugin-svelte": "^3.2.6",
+    "svelte": "5.0.0-next.206",
+    "svelte-check": "^3.8.5",
+    "tailwindcss": "^3.4.7",
+    "tslib": "^2.6.3",
+    "typescript": "^5.5.4",
+    "vite": "^5.3.5",
+    "vitest": "^1.2.0"
+  },
+  "dependencies": {
+    "@sveltejs/adapter-vercel": "^5.4.1",
+    "@sveltejs/vite-plugin-svelte": "^3.1.1",
+    "@vitejs/plugin-basic-ssl": "^1.1.0",
+    "@wagmi/cli": "^2.1.15",
+    "@wagmi/connectors": "^5.1.2",
+    "@wagmi/core": "^2.13.1",
+    "@web3modal/wagmi": "^5.0.11",
+    "autoprefixer": "^10.4.19",
+    "patch-package": "^8.0.0",
+    "postcss": "^8.4.40",
+    "postcss-import": "^16.1.0",
+    "svelte-i18n": "^4.0.0",
+    "viem": "^2.18.7",
+    "vite-tsconfig-paths": "^4.3.2",
+    "@resvg/resvg-js": "^2.6.0",
+    "satori": "^0.10.13",
+    "satori-html": "^0.3.2"
+  },
+  "optionalDependencies": {
+    "@oazapfts/runtime": "^1.0.2",
+    "object.groupby": "^1.0.3"
+  }
+}
