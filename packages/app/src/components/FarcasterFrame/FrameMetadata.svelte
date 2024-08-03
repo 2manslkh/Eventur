@@ -47,9 +47,8 @@
 </svelte:head>
 
 {#if showPreview}
-  <div class="frame-preview">
+  <div class="frame-preview w-[320px]">
     {title}
-
     <img src={metadata.image.url} alt="Frame" />
   </div>
 {/if}

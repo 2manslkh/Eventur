@@ -1,3 +1,3 @@
 export { default as EventList } from './EventList.svelte';
-export { default as EventListItem } from './EventForm.svelte';
-export { default as EventListItemSkeleton } from './EventDetail.svelte';
+export { default as EventForm } from './EventForm.svelte';
+export { default as EventDetail } from './EventDetail.svelte';
