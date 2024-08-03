@@ -10,4 +10,9 @@ export const NavigationData: INavigation[] = [
     url: '/',
     disabled: false,
   },
+  {
+    label: 'Events',
+    url: '/events',
+    disabled: false,
+  },
 ];
