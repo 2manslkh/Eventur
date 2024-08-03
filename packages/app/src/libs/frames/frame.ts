@@ -48,6 +48,37 @@ export type FrameMeta = {
   state?: Record<string, string>;
 };
 
+export const mockFrameMeta: FrameMeta = {
+  version: '1-0-0',
+  image: {
+    url: 'https://placehold.co/1910x1000',
+    aspectRatio: '1.91:1',
+  },
+  postUrl: 'https://example.com/frame-action',
+  textInput: 'Enter your response...',
+  buttons: [
+    {
+      label: 'Button 1',
+      action: 'post',
+      targetUrl: 'https://example.com/button1',
+    },
+    {
+      label: 'Button 2',
+      action: 'link',
+      targetUrl: 'https://example.com/button2',
+    },
+    {
+      label: 'Button 3',
+      action: 'mint',
+      targetUrl: 'https://example.com/button3',
+    },
+  ],
+  state: {
+    key1: 'value1',
+    key2: 'value2',
+  },
+};
+
 export const serializeFrameMeta = (frameMeta: FrameMeta, baseUrl?: URL | string) =>
   [
     {
