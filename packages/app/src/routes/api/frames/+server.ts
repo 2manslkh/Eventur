@@ -1,7 +1,7 @@
-<script lang="ts">
-  import { getFrameHtml, type Frame, type GetFrameHtmlOptions } from 'frames.js';
-
-  let frame: Frame = {
+import { getFrameHtml, type Frame, type GetFrameHtmlOptions } from 'frames.js';
+/** @type {import('./$types').RequestHandler} */
+export async function GET({ url }) {
+  const frame: Frame = {
     version: '1-0-0',
     image: `https://placehold.co/191x100`,
   };
@@ -12,10 +12,10 @@
     /** the <title> of the page */
     title: 'frames.lol',
     /** Additional string to include in the <body> of the html string */
-    htmlBody: 'Body',
+    htmlBody: '',
     /** Additional string to include in the <head> of the html string */
-    htmlHead: 'Head',
+    htmlHead: '',
   };
   const html = getFrameHtml(frame, options);
-  console.log(html);
-</script>
+  return new Response(html);
+}

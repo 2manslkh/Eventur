@@ -54,7 +54,7 @@ export function randomEventTime(): string {
 
 /**
  * Generates a random date and time for an event within the next year.
- * @returns {string} A randomly generated date and time in the format "YYYY-MM-DD HH:MM:SS".
+ * @returns {string} A randomly generated date and time in the format "YYYY-MM-DDTHH:mm:ss".
  */
 export function randomDateTime(): string {
   const now = new Date();
@@ -63,6 +63,8 @@ export function randomDateTime(): string {
   const year = futureDate.getFullYear();
   const month = String(futureDate.getMonth() + 1).padStart(2, '0');
   const day = String(futureDate.getDate()).padStart(2, '0');
+  const hours = String(futureDate.getHours()).padStart(2, '0');
+  const minutes = String(futureDate.getMinutes()).padStart(2, '0');
 
-  return `${year}-${month}-${day}`;
+  return `${year}-${month}-${day}T${hours}:${minutes}`;
 }

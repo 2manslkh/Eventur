@@ -8,13 +8,16 @@
     randomEventDescription,
     randomEventCapacity,
   } from '$libs/random';
-  let name = '';
-  let date = '';
+  let title = '';
+  let startTime: string = '';
+  let endTime: string = '';
   let location = '';
   let description = '';
   let capacity = 0;
   let coverImage: File | null = null;
   let ticketImage: File | null = null;
+  let status: 'Pending' | 'Invited' | 'Going' = 'Pending';
+  let organizer = '';
 
   const handleCoverImageChange = (event: Event) => {
     const target = event.target as HTMLInputElement;
@@ -28,12 +31,12 @@
 
   const handleSubmit = async () => {
     // Validate form entries
-    if (!name.trim()) {
+    if (!title.trim()) {
       alert('Event name is required');
       return;
     }
 
-    if (!date) {
+    if (!startTime) {
       alert('Date is required');
       return;
     }
@@ -53,20 +56,21 @@
       return;
     }
 
-    // if (!coverImage) {
-    //   alert('Cover image is required');
-    //   return;
-    // }
-
-    // if (!ticketImage) {
-    //   alert('Ticket image is required');
-    //   return;
-    // }
-
     const coverImageUrl = coverImage ? await uploadImage(coverImage) : '';
     const ticketImageUrl = ticketImage ? await uploadImage(ticketImage) : '';
 
-    createEvent({ name, date, location, description, capacity, coverImageUrl, ticketImageUrl });
+    createEvent({
+      title,
+      startTime,
+      endTime,
+      location,
+      description,
+      capacity,
+      coverImageUrl,
+      ticketImageUrl,
+      status,
+      organizer,
+    });
     goto('/events');
   };
 
@@ -82,8 +86,8 @@
   };
 
   const handleRandom = () => {
-    name = randomEventName();
-    date = randomDateTime();
+    title = randomEventName();
+    startTime = randomDateTime();
     location = randomEventLocation();
     description = randomEventDescription();
     capacity = randomEventCapacity();
@@ -102,15 +106,15 @@
     <label class="block text-sm font-bold mb-2">Event Name</label>
     <input
       type="text"
-      bind:value={name}
+      bind:value={title}
       class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
       required />
   </div>
   <div class="mb-4">
     <label class="block text-sm font-bold mb-2">Date</label>
     <input
-      type="date"
-      bind:value={date}
+      type="datetime-local"
+      bind:value={startTime}
       class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
       required />
   </div>

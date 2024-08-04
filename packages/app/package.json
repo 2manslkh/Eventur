@@ -38,6 +38,7 @@
     "vitest": "^1.2.0"
   },
   "dependencies": {
+    "@resvg/resvg-js": "^2.6.0",
     "@sveltejs/adapter-vercel": "^5.4.1",
     "@sveltejs/vite-plugin-svelte": "^3.1.1",
     "@vitejs/plugin-basic-ssl": "^1.1.0",
@@ -46,15 +47,15 @@
     "@wagmi/core": "^2.13.1",
     "@web3modal/wagmi": "^5.0.11",
     "autoprefixer": "^10.4.19",
+    "frames.js": "^0.18.1",
     "patch-package": "^8.0.0",
     "postcss": "^8.4.40",
     "postcss-import": "^16.1.0",
+    "satori": "^0.10.13",
+    "satori-html": "^0.3.2",
     "svelte-i18n": "^4.0.0",
     "viem": "^2.18.7",
-    "vite-tsconfig-paths": "^4.3.2",
-    "@resvg/resvg-js": "^2.6.0",
-    "satori": "^0.10.13",
-    "satori-html": "^0.3.2"
+    "vite-tsconfig-paths": "^4.3.2"
   },
   "optionalDependencies": {
     "@oazapfts/runtime": "^1.0.2",

@@ -7,7 +7,7 @@ import { createWeb3Modal, defaultWagmiConfig } from '@web3modal/wagmi';
 
 const projectId = PUBLIC_WALLETCONNECT_PROJECT_ID;
 
-const chains: [Chain, ...Chain[]] = [base, baseSepolia] ;
+const chains: [Chain, ...Chain[]] = [base, baseSepolia];
 
 export type ValidChainIds = number;
 
@@ -26,11 +26,15 @@ export const wagmiConfig = defaultWagmiConfig({
   enableEIP6963: true,
   enableWalletConnect: true,
   enableInjected: true,
+  auth: {
+    socials: ['farcaster'],
+  },
 });
 
 export const web3Modal = createWeb3Modal({
   wagmiConfig,
   projectId,
+
   themeMode: 'dark',
   themeVariables: {
     '--w3m-font-family': 'Comic Sans MS',

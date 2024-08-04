@@ -2,7 +2,7 @@
 
   // Context
   import { page } from '$app/stores';
-  import FrameMetadata from '$components/FarcasterFrame/FrameMetadata.svelte';
+  import {FrameMetadata} from '$components/FarcasterFrame';
   let { children } = $props()
   let {
     url,
@@ -26,19 +26,22 @@
   {@render children()}
 </div>
 
+
 {#if frame}
-  <FrameMetadata
-    {title}
-    metadata={{
-      ...frame,
-      image: {
-        ...frame.image,
-        url: frameImageUrl,
-      },
-    }}
-    baseUrl={$page.url}
-    showPreview={true} />
+	<FrameMetadata
+		{title}
+		metadata={{
+			...frame,
+			image: {
+				...frame.image,
+				url: frameImageUrl
+			}
+		}}
+		baseUrl={$page.url}
+		showPreview={true}
+	/>
 {/if}
+
 
 <style>
   :global(body) {

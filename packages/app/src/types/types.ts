@@ -11,11 +11,16 @@ export type ScreenMode = 'desktop' | 'mobile';
 
 export interface Event {
   id: number;
-  name: string;
-  date: string;
+  title: string;
+  startTime: string;
+  endTime: string;
+  organizer: string;
   location: string;
-  description: string;
+  status: 'Invited' | 'Pending' | 'Going';
+  attendees?: number;
+  image?: string;
   capacity: number;
+  description: string;
 }
 
 export type RSVPStatus = 'yes' | 'no' | 'pending';

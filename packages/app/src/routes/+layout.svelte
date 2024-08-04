@@ -45,7 +45,6 @@
       <TopNavBar />
     </div>
     <slot />
-
     <!-- Footer -->
     <div class="relative bottom-0 flex flex-col w-full items-center justify-center bg-primary-background">
       <Footer />
