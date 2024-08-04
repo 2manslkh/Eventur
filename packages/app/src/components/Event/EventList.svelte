@@ -12,7 +12,7 @@
       {#each events as event}
         <li class="mb-4 p-4 bg-white rounded shadow-md">
           <a href={`/events/${event.id}`} class="text-blue-500">{event.title}</a>
-          <p>{event.date}</p>
+          <p>{event.startTime}</p>
           <p>{event.location}</p>
           <p>{event.description}</p>
           <p>Capacity: {event.capacity}</p>
