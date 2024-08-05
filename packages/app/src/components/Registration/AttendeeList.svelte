@@ -5,6 +5,7 @@
   import type { Attendee } from '$types';
   import { page } from '$app/stores';
   import { getEventId } from '$libs/util/getEventId';
+  import { shortenAddress } from '$libs/util/shortenAddress';
 
   let attendees: Attendee[] = [];
   let eventId: number;
@@ -19,13 +20,13 @@
   });
 </script>
 
-<div class="flex flex-col gap-4 h-full">
-  <h1 class="text-2xl font-bold mb-4">Attendees</h1>
-  <div class="p-4 max-w-lg mx-auto overflow-x-scroll h-80">
+<div class="flex flex-col justify-start items-start gap-4 h-full">
+  <h1 class="text-2xl font-bold">Attendees</h1>
+  <div class="max-w-lg overflow-x-scroll h-80">
     <ul>
       {#each attendees as attendee}
-        <li class="mb-4 p-4 bg-white rounded shadow-md">
-          <p><strong>Address:</strong> {attendee.address}</p>
+        <li class="mb-1 px-4 py-2 bg-white rounded shadow-md">
+          <p>{shortenAddress(attendee.address)}</p>
           <p><strong>RSVP Status:</strong> {attendee.rsvpStatus}</p>
         </li>
       {/each}

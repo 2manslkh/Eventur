@@ -15,3 +15,11 @@ export const createEvent = (event: EventWithoutId) => {
     return [...currentEvents, { ...event, id }];
   });
 };
+
+export const getEvent = (eventId: number) => {
+  return get(events).find((event) => event.id === eventId);
+};
+
+export const getEvents = () => {
+  return get(events);
+};
