@@ -6,13 +6,13 @@
   import { TELEGRAM_URL, TWITTER_URL } from '$libs/socials';
 </script>
 
-<div class="flex justify-between items-center max-w-[1440px] px-4 lg:px-10 w-full py-4 text-black gap-4">
+<div class="flex justify-between items-center max-w-[1440px] px-4 lg:px-10 w-full py-4 text-primary-content gap-4">
   <!-- Left Section -->
   <a class="flex justify-between items-start w-full" href="/">
-    <div class="text-2xl rainbow-text-and-shadow">Title</div>
+    <div class="title-subsection-semibold">Eventur</div>
   </a>
   <!-- Middle Section -->
-  <div class="flex items-center justify-center h-10 gap-2 lg:gap-8 body-bold">
+  <div class="flex items-center justify-center h-10 gap-2 lg:gap-8 body-medium">
     {#each NavigationData as data}
       <a href={data.url} class="w-fit">{data.label}</a>
     {/each}

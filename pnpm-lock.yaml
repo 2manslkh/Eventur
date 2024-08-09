@@ -28,6 +28,9 @@ importers:
       '@tiptap/core':
         specifier: ^2.5.9
         version: 2.5.9(@tiptap/pm@2.5.9)
+      '@tiptap/extension-heading':
+        specifier: ^2.5.9
+        version: 2.5.9(@tiptap/core@2.5.9(@tiptap/pm@2.5.9))
       '@tiptap/pm':
         specifier: ^2.5.9
         version: 2.5.9

@@ -6,8 +6,9 @@
   import type { RSVPStatus } from '$types';
   import { getCurrentAddressOrNull } from '$libs/wagmi';
 
-  let eventId: number;
-  $: eventId = getEventId($page.params);
+  // ... other imports ...
+
+  let eventId = $derived(getEventId($page.params));
 
   const handleSubmit = (rsvpStatus: RSVPStatus) => {
     const address = getCurrentAddressOrNull();

@@ -14,7 +14,7 @@
           <a href={`/events/${event.id}`} class="text-blue-500">{event.title}</a>
           <p>{event.startTime}</p>
           <p>{event.location}</p>
-          <p>{event.description}</p>
+          {@html event.description}
           <p>Capacity: {event.capacity}</p>
         </li>
       {/each}

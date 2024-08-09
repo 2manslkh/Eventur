@@ -8,6 +8,11 @@
     randomEventDescription,
     randomEventCapacity,
   } from '$libs/random';
+  import { Editor } from '@tiptap/core';
+  import { onMount } from 'svelte';
+  import Heading from '@tiptap/extension-heading';
+  import StarterKit from '@tiptap/starter-kit';
+
   let title = '';
   let startTime: string = '';
   let endTime: string = '';
@@ -18,6 +23,27 @@
   let ticketImage: File | null = null;
   let status: 'Pending' | 'Invited' | 'Going' = 'Pending';
   let organizer = '';
+  let editorInstance: Editor;
+  let element: HTMLElement;
+
+  onMount(() => {
+    editorInstance = new Editor({
+      element: element,
+      extensions: [
+        StarterKit,
+        Heading.configure({
+          HTMLAttributes: {
+            class: 'text-left',
+          },
+        }),
+      ],
+      content: '<h2>Markdown is supported 🌍️</h2>',
+      onTransaction: () => {
+        // force re-render so `editor.isActive` works as expected
+        editorInstance = editorInstance;
+      },
+    });
+  });
 
   const handleCoverImageChange = (event: Event) => {
     const target = event.target as HTMLInputElement;
@@ -64,7 +90,7 @@
       startTime,
       endTime,
       location,
-      description,
+      description: editorInstance.getHTML(),
       capacity,
       coverImageUrl,
       ticketImageUrl,
@@ -97,17 +123,17 @@
 <button
   type="button"
   on:click={handleRandom}
-  class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline mb-4">
+  class="bg-primary-button font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline mb-4">
   Randomize Event
 </button>
 
-<form on:submit|preventDefault={handleSubmit} class="p-4 max-w-lg mx-auto bg-white rounded shadow-md">
+<form on:submit|preventDefault={handleSubmit} class="p-4 max-w-lg mx-auto rounded shadow-md">
   <div class="mb-4">
     <label class="block text-sm font-bold mb-2">Event Name</label>
     <input
       type="text"
       bind:value={title}
-      class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+      class="shadow appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline bg-primary-background-elevated"
       required />
   </div>
   <div class="mb-4">
@@ -115,7 +141,7 @@
     <input
       type="datetime-local"
       bind:value={startTime}
-      class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+      class="shadow appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline bg-primary-background-elevated"
       required />
   </div>
   <div class="mb-4">
@@ -123,22 +149,20 @@
     <input
       type="text"
       bind:value={location}
-      class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+      class="shadow appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline bg-primary-background-elevated"
       required />
   </div>
   <div class="mb-4">
     <label class="block text-sm font-bold mb-2">Description</label>
-    <textarea
-      bind:value={description}
-      class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-      required></textarea>
+    <div class="bg-primary-background-elevated text-left p-2" bind:this={element} />
+    <!-- <TipTap editor={editorInstance} /> -->
   </div>
   <div class="mb-4">
     <label class="block text-sm font-bold mb-2">Capacity</label>
     <input
       type="number"
       bind:value={capacity}
-      class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+      class="shadow appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline bg-primary-background-elevated"
       required />
   </div>
   <div class="mb-4">
@@ -147,7 +171,7 @@
       type="file"
       accept="image/*"
       on:change={handleCoverImageChange}
-      class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
+      class="shadow appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline" />
   </div>
   <div class="mb-4">
     <label class="block text-sm font-bold mb-2">Ticket Image</label>
@@ -155,10 +179,8 @@
       type="file"
       accept="image/*"
       on:change={handleTicketImageChange}
-      class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
+      class="shadow appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline" />
   </div>
-  <button
-    type="submit"
-    class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+  <button type="submit" class="bg-blue font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
     >Create Event</button>
 </form>

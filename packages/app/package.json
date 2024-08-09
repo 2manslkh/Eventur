@@ -44,6 +44,7 @@
     "@sveltejs/adapter-vercel": "^5.4.1",
     "@sveltejs/vite-plugin-svelte": "^3.1.1",
     "@tiptap/core": "^2.5.9",
+    "@tiptap/extension-heading": "^2.5.9",
     "@tiptap/pm": "^2.5.9",
     "@tiptap/starter-kit": "^2.5.9",
     "@vitejs/plugin-basic-ssl": "^1.1.0",

@@ -15,4 +15,9 @@ export const NavigationData: INavigation[] = [
     url: '/events',
     disabled: false,
   },
+  {
+    label: 'Admin',
+    url: '/admin',
+    disabled: false,
+  },
 ];

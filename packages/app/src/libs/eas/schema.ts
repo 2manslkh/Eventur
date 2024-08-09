@@ -4,12 +4,16 @@ import { wagmiConfig } from '$libs/wagmi';
 import { NAME_A_SCHEMA_UID, SCHEMA_REGISTRY_CONTRACT_ADDRESS } from '.';
 import type { SchemaBlocks } from './types';
 import { newAttestation } from './attest';
+import { switchChain } from '@wagmi/core';
 
 export function buildSchema(schema: SchemaBlocks[]): string {
   return schema.map((block) => `${block.type} ${block.name}`).join(', ');
 }
 
 export async function addSchema(schema: string) {
+  // Switch to Base Sepolia
+  await switchChain(wagmiConfig, { chainId: 84532 });
+
   const signer = await getEthersSigner(wagmiConfig);
 
   const schemaRegistry = new SchemaRegistry(SCHEMA_REGISTRY_CONTRACT_ADDRESS);
@@ -58,7 +62,7 @@ export async function addEventSchema() {
 }
 
 export async function addRSVPSchema() {
-  const schemaBlocks: SchemaBlocks[] = [{ type: 'boolean', name: 'rsvp' }];
+  const schemaBlocks: SchemaBlocks[] = [{ type: 'bool', name: 'rsvp' }];
   const schemaString = buildSchema(schemaBlocks);
   const uid = await addSchema(schemaString);
   // Name the Schema

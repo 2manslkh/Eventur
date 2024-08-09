@@ -39,15 +39,15 @@
   </div>
 {:else}
   <div
-    class="flex body-regular h-screen flex-col bg-cool bg-cover bg-[center_top_2rem] min-w-[330px] overflow-x-hidden">
+    class="flex body-regular h-screen flex-col bg-primary-background text-primary-content-light bg-cover bg-[center_top_2rem] min-w-[330px] overflow-x-hidden">
     <div
-      class="flex flex-col relative top-0 w-full items-center justify-center bg-[#FFFFFF] bg-opacity-25 border-b border-b-black">
+      class="flex flex-col relative top-0 w-full items-center justify-center bg-primary-background-highlight bg-opacity-25 border-b border-b-black">
       <TopNavBar />
     </div>
     <slot />
     <!-- Footer -->
-    <div class="relative bottom-0 flex flex-col w-full items-center justify-center bg-primary-background">
+    <!-- <div class="relative bottom-0 flex flex-col w-full items-center justify-center bg-primary-background">
       <Footer />
-    </div>
+    </div> -->
   </div>
 {/if}

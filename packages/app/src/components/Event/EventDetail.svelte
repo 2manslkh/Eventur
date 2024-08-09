@@ -71,7 +71,7 @@
     <div class="mb-6">
       <h2 class="text-xl font-semibold mb-2">About Event</h2>
       <div class="divide-y divide-grey-700"></div>
-      <p>{event.description}</p>
+      {@html event.description}
     </div>
   </div>
 {:else}
