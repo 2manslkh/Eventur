@@ -1,6 +1,7 @@
 <script>
-  import { EventList } from '$components/Event';
+  import TipTap from '$components/Editor/TipTap.svelte';
   import { Timeline } from '$components/Timeline';
+  import { addEventSchema } from '$libs/eas/schema';
   import { events } from '$stores';
 </script>
 
@@ -13,5 +14,9 @@
       >+ Event</a>
   </div>
   <Timeline events={$events} date={new Date()} />
+  <button class="btn" on:click={addEventSchema}> Add Schema </button>
   <!-- <EventList /> -->
+  <TipTap></TipTap>
+
+  <button class="btn" on:click={addEventSchema}> Export TipTap </button>
 </div>
