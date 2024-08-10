@@ -1,5 +1,6 @@
 import { get, writable } from 'svelte/store';
 import type { Event } from '$types';
+import { newAttestation, newEventAttestation } from '$libs/eas';
 
 // Update the Event type to include coverImageUrl and ticketImageUrl
 type EventWithoutId = Omit<Event, 'id'> & {
@@ -9,11 +10,16 @@ type EventWithoutId = Omit<Event, 'id'> & {
 
 export const events = writable<Event[]>([]);
 
-export const createEvent = (event: EventWithoutId) => {
+export const createEvent = async (event: EventWithoutId) => {
   events.update((currentEvents) => {
     const id = currentEvents.length ? Math.max(...currentEvents.map((e) => e.id)) + 1 : 1;
     return [...currentEvents, { ...event, id }];
   });
+
+  // Create new Event Attestation
+  const data = { title: event.title, description: event.description };
+
+  await newEventAttestation(data);
 };
 
 export const getEvent = (eventId: number) => {

@@ -1,11 +1,18 @@
 @tailwind components;
 
+@font-face {
+  font-family: 'Coinbase Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../public/fonts/Coinbase/Coinbase-Text/Coinbase_Text-Regular-web-1.32.woff2');
+}
+
 @layer components {
-  .font-comic {
-    font-family: 'Comic Sans MS', 'Comic Sans', 'Comic Neue';
+  .font-primary {
+    font-family: 'Coinbase Sans', sans-serif;
   }
-  .font-poppins {
-    font-family: 'Poppins', sans-serif;
+  .font-secondary {
+    font-family: 'Comic Sans MS', 'Comic Sans', 'Comic Neue';
   }
 
   .bg-rainbow-gradient {
@@ -51,149 +58,149 @@
 
   /* Typography */
   .display-xl-medium {
-    @apply font-poppins font-medium text-[100px]/[85px];
+    @apply font-primary font-medium text-[100px]/[85px];
   }
 
   .display-xl-semibold {
-    @apply font-poppins font-semibold text-[80px]/[85px];
+    @apply font-primary font-semibold text-[80px]/[85px];
   }
 
   .display-large-semibold {
-    @apply font-poppins font-semibold text-[57px]/[64px];
+    @apply font-primary font-semibold text-[57px]/[64px];
   }
 
   .display-large-medium {
-    @apply font-poppins font-medium text-[57px]/[64px];
+    @apply font-primary font-medium text-[57px]/[64px];
   }
 
   .display-small-semibold {
-    @apply font-poppins font-semibold text-[45px]/[52px];
+    @apply font-primary font-semibold text-[45px]/[52px];
   }
 
   .display-small-medium {
-    @apply font-poppins font-medium text-[45px]/[52px];
+    @apply font-primary font-medium text-[45px]/[52px];
   }
 
   .title-screen-regular {
-    @apply font-poppins font-normal text-[2rem]/10;
+    @apply font-primary font-normal text-[2rem]/10;
   }
 
   .title-screen-bold {
-    @apply font-poppins font-bold text-[2rem]/10;
+    @apply font-primary font-bold text-[2rem]/10;
   }
 
   .title-section-regular {
-    @apply font-poppins font-normal text-[1.625rem]/8;
+    @apply font-primary font-normal text-[1.625rem]/8;
   }
 
   .title-section-bold {
-    @apply font-poppins font-bold text-[1.625rem]/8;
+    @apply font-primary font-bold text-[1.625rem]/8;
   }
 
   .title-subsection-regular {
-    @apply font-poppins font-normal text-[1.375rem]/7;
+    @apply font-primary font-normal text-[1.375rem]/7;
   }
 
   .title-subsection-bold {
-    @apply font-poppins font-bold text-[1.375rem]/7;
+    @apply font-primary font-bold text-[1.375rem]/7;
   }
 
   .title-subsection-semibold {
-    @apply font-poppins font-semibold text-[1.375rem]/7;
+    @apply font-primary font-semibold text-[1.375rem]/7;
   }
 
   .title-subsection-semibold-neon {
-    @apply font-poppins font-semibold text-[1.375rem]/7;
+    @apply font-primary font-semibold text-[1.375rem]/7;
     text-shadow: 0 0 4px var(--primary-brand-neon);
   }
 
   .title-subsection-medium-neon {
-    @apply font-poppins font-medium text-[1.375rem]/7;
+    @apply font-primary font-medium text-[1.375rem]/7;
     text-shadow: 0 0 4px var(--primary-brand-neon);
   }
 
   .title-body-regular {
-    @apply font-poppins font-normal text-lg/6;
+    @apply font-primary font-normal text-lg/6;
   }
 
   .title-body-bold {
-    @apply font-poppins font-bold text-lg/6;
+    @apply font-primary font-bold text-lg/6;
   }
 
   .body-regular {
-    @apply font-poppins font-normal text-base;
+    @apply font-primary font-normal text-base;
   }
 
   .body-bold {
-    @apply font-poppins font-bold text-base;
+    @apply font-primary font-bold text-base;
   }
 
   .body-semibold {
-    @apply font-poppins font-bold text-sm/[24px];
+    @apply font-primary font-bold text-sm/[24px];
   }
 
   .body-semibold-2 {
-    @apply font-poppins font-semibold text-[16px]/[19.5px];
+    @apply font-primary font-semibold text-[16px]/[19.5px];
   }
 
   .body-medium {
-    @apply font-poppins font-medium text-base;
+    @apply font-primary font-medium text-base;
   }
 
   .body-small-regular {
-    @apply font-poppins font-normal text-sm;
+    @apply font-primary font-normal text-sm;
   }
 
   .body-small-light {
-    @apply font-poppins font-light text-sm;
+    @apply font-primary font-light text-sm;
   }
 
   .body-small-bold {
-    @apply font-poppins font-bold text-sm;
+    @apply font-primary font-bold text-sm;
   }
 
   .table-header {
-    @apply font-poppins font-medium text-[12px]/[18px];
+    @apply font-primary font-medium text-[12px]/[18px];
   }
 
   .body-small-medium {
-    @apply font-poppins font-medium text-[14px]/[18px];
+    @apply font-primary font-medium text-[14px]/[18px];
   }
 
   .body-xs-medium {
-    @apply font-poppins font-medium text-[12px]/[18px];
+    @apply font-primary font-medium text-[12px]/[18px];
   }
 
   .body-small-semibold {
-    @apply font-poppins font-semibold text-[12px]/[18px];
+    @apply font-primary font-semibold text-[12px]/[18px];
   }
 
   .body-large-semibold {
-    @apply font-poppins font-semibold text-[24px]/[28px];
+    @apply font-primary font-semibold text-[24px]/[28px];
   }
 
   .body-xs-semibold {
-    @apply font-poppins font-semibold text-[12px]/[18px];
+    @apply font-primary font-semibold text-[12px]/[18px];
   }
 
   .body-xs-medium {
-    @apply font-poppins font-medium text-[12px]/[18px];
+    @apply font-primary font-medium text-[12px]/[18px];
   }
 
   .body-tiny-medium {
-    @apply font-poppins font-medium text-[10px]/[10px];
+    @apply font-primary font-medium text-[10px]/[10px];
   }
 
   .callout-regular {
-    @apply font-poppins font-normal text-sm;
+    @apply font-primary font-normal text-sm;
   }
 
   .callout-bold {
-    @apply font-poppins font-bold text-sm;
+    @apply font-primary font-bold text-sm;
   }
 
   .link-large-regular {
-    @apply font-poppins font-normal text-base;
+    @apply font-primary font-normal text-base;
   }
 
   .link-regular {
@@ -335,7 +342,7 @@
     color: var(--primary-content);
     text-align: center;
     /* Title Section/Bold */
-    font-family: Public Sans;
+    font-family: 'Coinbase Sans';
     font-size: 26px;
     font-style: normal;
     font-weight: 700;
@@ -345,7 +352,7 @@
 
   h2 {
     color: var(--primary-content);
-    font-family: Public Sans;
+    font-family: 'Coinbase Sans';
     font-size: 18px;
     font-style: normal;
     font-weight: 700;

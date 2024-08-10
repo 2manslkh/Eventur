@@ -332,7 +332,7 @@
     color: var(--primary-content);
     text-align: center;
     /* Title Section/Bold */
-    font-family: Public Sans;
+    font-family: Coinbase Sans;
     font-size: 26px;
     font-style: normal;
     font-weight: 700;
@@ -342,7 +342,7 @@
 
   h2 {
     color: var(--primary-content);
-    font-family: Public Sans;
+    font-family: Coinbase Sans;
     font-size: 18px;
     font-style: normal;
     font-weight: 700;

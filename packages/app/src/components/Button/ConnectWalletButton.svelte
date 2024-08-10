@@ -18,14 +18,14 @@
 {#if !$account?.isConnected}
   <!-- Show Connect Wallet -->
   <button
-    class="border border-black bg-white py-4 px-6 body-semibold-2 text-black text-[16px] leading-[18px]"
+    class="border border-black rounded-full bg-white py-4 px-6 body-semibold-2 text-black text-[16px] leading-[18px]"
     on:click={handleConnectWallet}>
     CONNECT
   </button>
 {:else}
   <!-- Show user address -->
   <button
-    class="flex flex-row items-center justify-center gap-[9px] border border-black bg-white py-4 px-6 body-semibold-2 text-black text-[16px] leading-[18px]"
+    class="flex flex-row items-center rounded-full justify-center gap-[9px] border border-black bg-white py-4 px-6 body-semibold-2 text-black text-[16px] leading-[18px]"
     on:click={handleConfigureWallet}>
     {shortenAddress($account.address ?? 'undefined', 4, 4)}
   </button>

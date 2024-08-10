@@ -17,7 +17,7 @@ export const web3modal = createWeb3Modal({
   themeVariables: {
     '--w3m-color-mix': 'var(--neutral-background)',
     '--w3m-color-mix-strength': 20,
-    '--w3m-font-family': '"Public Sans", sans-serif',
+    '--w3m-font-family': '"Coinbase Sans", sans-serif',
     '--w3m-border-radius-master': '9999px',
     '--w3m-accent': 'var(--primary-brand)',
   },

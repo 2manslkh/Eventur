@@ -1,3 +1,4 @@
+import { EVENTUR_EVENT_UID } from './eas';
 import { EAS, SchemaEncoder, SchemaRegistry, ZERO_ADDRESS, ZERO_BYTES32 } from '@ethereum-attestation-service/eas-sdk';
 import { EAS_CONTRACT_ADDRESS, SCHEMA_REGISTRY_CONTRACT_ADDRESS } from '.';
 import type { AttestationBlocks } from './types';
@@ -28,4 +29,8 @@ export async function newAttestation(schemaUID: string, data: AttestationBlocks[
 
   const newAttestationUID = await tx.wait();
   console.log('New attestation UID:', newAttestationUID);
+}
+
+export async function newEventAttestation(data: AttestationBlocks[]) {
+  await newAttestation(EVENTUR_EVENT_UID, data);
 }

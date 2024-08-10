@@ -29,7 +29,7 @@ export default {
          * Base colors *
          ***************/
         blue: {
-          DEFAULT: 'var(--brand-color-blue)',
+          DEFAULT: 'var(--color-base-blue-200)',
           darker: 'var(--brand-color-blue-darker)',
           translucent: 'var(--brand-color-blue-translucent)',
           // Gradient
@@ -102,6 +102,7 @@ export default {
         primary: {
           DEFAULT: 'var--color-primary-100)',
           brand: 'var--color-primary-100)',
+          base: 'var--color-base-blue-100)',
           content: {
             DEFAULT: 'var(--color-primary-100)',
             light: 'var(--color-primary-200)',
@@ -241,6 +242,9 @@ export default {
           "--color-surface-mixed-500": "#7d7d7d",
           "--color-surface-mixed-600": "#969696",
 
+          "--color-base-blue-100": "#0052FF",
+          "--color-base-blue-200": "#1F66FF",
+
           '--brand-bg-green': '#121212',
           '--brand-dark-red': '#d63c5e',
           '--brand-light-green': '#6da886',
@@ -273,6 +277,10 @@ export default {
           '--brand-dark-red': '#d63c5e',
           '--brand-light-green': '#6da886',
           '--brand-black': '#212529',
+
+          "--color-base-blue-100": "#0052FF",
+          "--color-base-blue-200": "#1F66FF",
+
           /* Colors from Figma  */
           '--brand-cool-background': '#121212',
           '--brand-cool-border': 'rgb(189,192,207)',

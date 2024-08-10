@@ -1,8 +1,12 @@
-import type { SchemaItem } from '@ethereum-attestation-service/eas-sdk';
+import type { SchemaValue } from '@ethereum-attestation-service/eas-sdk';
 
 export type SchemaBlocks = {
   type: string;
   name: string;
 };
 
-export type AttestationBlocks = SchemaItem;
+export type AttestationBlocks = {
+  name: string;
+  type: string;
+  value: SchemaValue;
+};
