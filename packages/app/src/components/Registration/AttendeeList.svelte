@@ -21,11 +21,11 @@
 </script>
 
 <div class="flex flex-col justify-start items-start gap-4 h-full">
-  <h1 class="text-2xl font-bold">Attendees</h1>
-  <div class="max-w-lg overflow-x-scroll h-80">
+  <h1 class="text-2xl font-bold">Attendees ({attendees.length})</h1>
+  <div class="max-w-lg overflow-x-scroll h-80 w-full">
     <ul>
       {#each attendees as attendee}
-        <li class="mb-1 px-4 py-2 bg-white rounded shadow-md">
+        <li class="mb-1 px-4 py-2 bg-primary-background-elevated rounded shadow-md w-full">
           <p>{shortenAddress(attendee.address)}</p>
           <p><strong>RSVP Status:</strong> {attendee.rsvpStatus}</p>
         </li>

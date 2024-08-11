@@ -1,6 +1,6 @@
 <script>
   import { EventDetail } from '$components/Event';
-  import { AttendeeList, RegistrationForm } from '$components/Registration';
+  import { AttendeeList } from '$components/Registration';
 
   // Context
   // import { page } from '$app/stores';
@@ -9,10 +9,9 @@
 </script>
 
 <!-- <FrameMetadata title={'Frame Event'} metadata={mockFrameMeta} baseUrl={$page.url} showPreview={true} /> -->
-
-<div class="flex gap-4">
-  <div class="flex w-full">
-    <div class="flex flex-col gap-4 p-2">
+<div class="container">
+  <div class="flex flex-col sm:flex-row gap-4 justify-center items-center sm:items-start w-full">
+    <div class="flex flex-col gap-4 p-2 w-full sm:w-auto">
       <img src="https://via.placeholder.com/200x200" alt="Frame Logo" class="rounded-xl w-fit" />
       <div>Hosted by</div>
       <div class="divider divider-accent"></div>
@@ -20,7 +19,7 @@
       <AttendeeList />
     </div>
 
-    <div class="flex flex-col gap-4">
+    <div class="flex flex-col gap-4 xl:min-w-[50%]">
       <EventDetail />
     </div>
   </div>

@@ -85,7 +85,7 @@
     const coverImageUrl = coverImage ? await uploadImage(coverImage) : '';
     const ticketImageUrl = ticketImage ? await uploadImage(ticketImage) : '';
 
-    createEvent({
+    await createEvent({
       title,
       startTime,
       endTime,

@@ -4,7 +4,7 @@
 
 <!-- Body -->
 <Page>
-  <section class="py-10 sm:py-16 md:py-20">
+  <section class="pt-10 sm:pt-16 md:pt-20">
     <div class="container mx-auto px-4 text-center">
       <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-2 sm:mb-4">Welcome to Event Manager</h1>
       <h2

@@ -38,9 +38,9 @@ export async function addEventSchema() {
     { type: 'string', name: 'name' },
     { type: 'string', name: 'description' }, // CID
     { type: 'string', name: 'location' },
-    { type: 'string', name: 'startTime' },
-    { type: 'string', name: 'endTime' },
-    { type: 'string', name: 'capacity' },
+    { type: 'uint64', name: 'startTime' },
+    { type: 'uint64', name: 'endTime' },
+    { type: 'uint32', name: 'capacity' },
   ];
 
   const schemaString = buildSchema(schemaBlocks);

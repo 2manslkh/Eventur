@@ -13,7 +13,7 @@
 </script>
 
 {#if event}
-  <div class="flex flex-col gap-2 max-w-3xl mx-auto text-black p-2 rounded-lg">
+  <div class="flex flex-col gap-2 max-w-3xl p-2 rounded-lg">
     <div class="flex items-center justify-between">
       <h1 class="text-4xl font-bold">{event.title}</h1>
     </div>
@@ -60,7 +60,7 @@
       </div>
     </div>
 
-    <div class="bg-white p-4 rounded-lg mb-6">
+    <div class="bg-primary-background-highlight p-4 rounded-lg mb-6">
       <h2 class="text-xl font-semibold mb-2">Registration</h2>
       <p>You are invited</p>
       <p class="text-sm text-grey-300">We'd love to have you join us.</p>
