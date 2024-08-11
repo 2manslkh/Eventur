@@ -23,12 +23,12 @@
 <div class="flex justify-between gap-4">
   <button
     type="submit"
-    on:click={() => handleSubmit('yes')}
+    onclick={() => handleSubmit('yes')}
     class="btn-block bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
     >RSVP Yes</button>
   <button
     type="submit"
-    on:click={() => handleSubmit('no')}
+    onclick={() => handleSubmit('no')}
     class="btn-block bg-pink-100 hover:bg-pink-200 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
     >RSVP No</button>
 </div>

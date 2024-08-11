@@ -19,7 +19,7 @@ export function groupEventsByDate(events: Event[]): Record<string, Event[]> {
   });
 
   // Sort events within each day
-  Object.entries(groupedEvents).forEach(([date, events]) => {
+  Object.entries(groupedEvents).forEach(([, events]) => {
     events.sort((a, b) => new Date(a.startTime).getTime() - new Date(b.startTime).getTime());
   });
 

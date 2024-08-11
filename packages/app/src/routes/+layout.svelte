@@ -3,7 +3,6 @@
   import { Responsiveness } from '$components/Responsiveness';
   import { onDestroy, onMount } from 'svelte';
   import { TopNavBar } from '$components/TopNavBar';
-  import { Footer } from '$components/Footer';
   import { Toasts } from '$components/Toast';
   import { startWatching, stopWatching } from '$libs/wagmi';
   import { WalletConnect } from '$components/Web3';

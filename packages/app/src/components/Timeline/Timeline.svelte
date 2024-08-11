@@ -1,13 +1,11 @@
 <script lang="ts">
-  import { Icon } from '$components/Icons';
   import { groupEventsByDate } from '$libs/util/groupEventsByDate';
   import type { Event } from '$types';
   import EventCard from './EventCard.svelte';
 
   export let events: Event[];
-  export let date: Date;
 
-  $: groupedEvents = groupEventsByDate(events, date) as Record<string, Event[]>;
+  $: groupedEvents = groupEventsByDate(events) as Record<string, Event[]>;
 </script>
 
 <div class="flex flex-col w-full">

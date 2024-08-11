@@ -9,7 +9,7 @@
     randomEventCapacity,
   } from '$libs/random';
   import { Editor } from '@tiptap/core';
-  import { onMount } from 'svelte';
+  import { onDestroy, onMount } from 'svelte';
   import Heading from '@tiptap/extension-heading';
   import StarterKit from '@tiptap/starter-kit';
 
@@ -45,15 +45,21 @@
     });
   });
 
-  const handleCoverImageChange = (event: Event) => {
-    const target = event.target as HTMLInputElement;
-    coverImage = target.files?.[0] || null;
-  };
+  onDestroy(() => {
+    if (editorInstance) {
+      editorInstance.destroy();
+    }
+  });
 
-  const handleTicketImageChange = (event: Event) => {
-    const target = event.target as HTMLInputElement;
-    ticketImage = target.files?.[0] || null;
-  };
+  // const handleCoverImageChange = (event: Event) => {
+  //   const target = event.target as HTMLInputElement;
+  //   coverImage = target.files?.[0] || null;
+  // };
+
+  // const handleTicketImageChange = (event: Event) => {
+  //   const target = event.target as HTMLInputElement;
+  //   ticketImage = target.files?.[0] || null;
+  // };
 
   const handleSubmit = async () => {
     // Validate form entries
@@ -129,37 +135,42 @@
 
 <form on:submit|preventDefault={handleSubmit} class="p-4 max-w-lg w-full mx-auto rounded shadow-md">
   <div class="mb-4">
-    <label class="block text-sm font-bold mb-2">Event Name</label>
+    <label for="event-name" class="block text-sm font-bold mb-2">Event Name</label>
     <input
+      id="event-name"
       type="text"
       bind:value={title}
       class="shadow appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline bg-primary-background-elevated"
       required />
   </div>
   <div class="mb-4">
-    <label class="block text-sm font-bold mb-2">Date</label>
+    <label for="event-date" class="block text-sm font-bold mb-2">Date</label>
     <input
+      id="event-date"
       type="datetime-local"
       bind:value={startTime}
       class="shadow appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline bg-primary-background-elevated"
       required />
   </div>
   <div class="mb-4">
-    <label class="block text-sm font-bold mb-2">Location</label>
+    <label for="event-location" class="block text-sm font-bold mb-2">Location</label>
     <input
+      id="event-location"
       type="text"
       bind:value={location}
       class="shadow appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline bg-primary-background-elevated"
       required />
   </div>
   <div class="mb-4">
-    <label class="block text-sm font-bold mb-2">Description</label>
-    <div class="bg-primary-background-elevated text-left p-2 h-[500px]" bind:this={element} />
+    <div class="block text-sm font-bold mb-2">Description</div>
+    <div class="bg-primary-background-elevated text-left p-2 h-[500px]" bind:this={element}></div>
+
     <!-- <TipTap editor={editorInstance} /> -->
   </div>
   <div class="mb-4">
-    <label class="block text-sm font-bold mb-2">Capacity</label>
+    <label for="event-capacity" class="block text-sm font-bold mb-2">Capacity</label>
     <input
+      id="event-capacity"
       type="number"
       bind:value={capacity}
       class="shadow appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline bg-primary-background-elevated"

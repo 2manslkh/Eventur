@@ -102,7 +102,6 @@ export default {
         primary: {
           DEFAULT: 'var--color-primary-100)',
           brand: 'var--color-primary-100)',
-          base: 'var--color-base-blue-100)',
           content: {
             DEFAULT: 'var(--color-primary-100)',
             light: 'var(--color-primary-200)',
@@ -128,6 +127,7 @@ export default {
             accent: 'var(--color-primary-600)',
           },
           base: {
+            DEFAULT: 'var--color-base-blue-100)',
             content: 'var(--primary-base-content)',
             background: 'var(--primary-base-background)',
           },
