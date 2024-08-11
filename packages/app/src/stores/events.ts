@@ -1,6 +1,7 @@
 import { get, writable } from 'svelte/store';
 import type { Event } from '$types';
 import { newEventAttestation } from '$libs/eas';
+import { addToast } from './toast';
 
 // Update the Event type to include coverImageUrl and ticketImageUrl
 type EventWithoutId = Omit<Event, 'id'> & {
