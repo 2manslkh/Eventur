@@ -12,6 +12,13 @@
         Built on
         <img src={'/base-logo.svg'} class="h-8 sm:h-10 md:h-12" alt="Base logo" />
       </h2>
+      <h3 class="text-lg flex flex-col sm:flex-row items-center justify-center w-full gap-2">
+        Powered by
+        <div class="text-lg f-center">
+          <img src={'/eas-logo.png'} class="h-8 sm:h-10 md:h-12" alt="EAS Logo" />
+          Ethereum Attestation Service
+        </div>
+      </h3>
       <p class="text-base sm:text-lg mb-6 sm:mb-8 mt-4">Create, manage, and attend events with ease.</p>
       <a href="/events" class="btn btn-primary text-sm sm:text-base">Get Started</a>
     </div>
@@ -22,7 +29,7 @@
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
         <div class="bg-primary-background-highlight p-6 rounded-lg shadow">
           <h3 class="text-2xl font-bold mb-4">Create Events</h3>
-          <p>Organize events with detailed information and manage them effortlessly.</p>
+          <p>Create events with a familiar and intuitive interface.</p>
         </div>
 
         <div class="bg-primary-background-highlight p-6 rounded-lg shadow">
@@ -31,10 +38,6 @@
             Verifiably prove that a user has attended an event. <b class="text-blue">Composable</b> with reputation systems
             on EAS
           </p>
-        </div>
-        <div class="bg-primary-background-highlight p-6 rounded-lg shadow">
-          <h3 class="text-2xl font-bold mb-4">Verify Attendance</h3>
-          <p>Use our system to verify attendee participation on the day of the event.</p>
         </div>
       </div>
 
@@ -51,9 +54,10 @@
             View guest ratings via an honor system that is <b class="text-blue">on-chain.</b>
           </p>
         </div>
+
         <div class="bg-primary-background-highlight p-6 rounded-lg shadow">
-          <h3 class="text-2xl font-bold mb-4">Verify Attendance</h3>
-          <p>Use our system to verify attendee participation on the day of the event.</p>
+          <h3 class="text-2xl font-bold mb-4">Token Gating</h3>
+          <p>Allow only holders of whitelisted ERC20 / ERC721 / ERC1155 to attend your events</p>
         </div>
       </div>
     </div>

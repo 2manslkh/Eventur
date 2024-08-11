@@ -27,7 +27,7 @@
       {#if type}
         <p class="title">{TitleMapping[type]}</p>
       {/if}
-      <p class="text">{message}</p>
+      {@html message}
     </div>
 
     {#if txnHash}

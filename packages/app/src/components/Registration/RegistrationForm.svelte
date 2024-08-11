@@ -9,14 +9,19 @@
 
   let eventId = $derived(getEventId($page.params));
 
+  let isLoading: boolean = $state(false);
+
   const handleSubmit = async (rsvpStatus: RSVPStatus) => {
     const address = getCurrentAddressOrNull();
+    isLoading = true;
+    try {
+      if (!address) {
+        throw new Error('No wallet address found. Please connect your wallet.');
+      }
 
-    if (!address) {
-      throw new Error('No wallet address found. Please connect your wallet.');
-    }
-
-    await registerAttendee({ address, rsvpStatus }, eventId);
+      await registerAttendee({ address, rsvpStatus }, eventId);
+    } catch {}
+    isLoading = false;
   };
 </script>
 
@@ -24,11 +29,21 @@
   <button
     type="submit"
     onclick={() => handleSubmit('yes')}
-    class="btn-block bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-    >RSVP Yes</button>
+    class="f-center btn-block bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+    {#if isLoading}
+      <div class="loading loading-spinner"></div>
+    {:else}
+      RSVP Yes
+    {/if}
+  </button>
   <button
     type="submit"
     onclick={() => handleSubmit('no')}
-    class="btn-block bg-pink-100 hover:bg-pink-200 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-    >RSVP No</button>
+    class=" f-center btn-block bg-pink-100 hover:bg-pink-200 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+    {#if isLoading}
+      <div class="loading loading-spinner"></div>
+    {:else}
+      RSVP No
+    {/if}
+  </button>
 </div>

@@ -4,6 +4,7 @@ import { EAS_CONTRACT_ADDRESS, SCHEMA_REGISTRY_CONTRACT_ADDRESS } from '.';
 import type { AttestationBlocks } from './types';
 import { getEthersSigner } from './ethersWrapper';
 import { wagmiConfig } from '$libs/wagmi';
+import { addToast } from '$stores/toast';
 
 export async function newAttestation(schemaUID: string, data: AttestationBlocks[], refUID?: string): Promise<string> {
   const eas = new EAS(EAS_CONTRACT_ADDRESS);
@@ -29,6 +30,13 @@ export async function newAttestation(schemaUID: string, data: AttestationBlocks[
 
   const newAttestationUID = await tx.wait();
   console.log('New attestation UID:', newAttestationUID);
+
+  addToast({
+    type: 'success',
+    message: `<p class="text">View transaction on <a href="https://base-sepolia.blockscout.com/tx/${tx.receipt?.hash}" target="_blank">blockscout</a></p>`,
+    timeout: 3000,
+  });
+
   return newAttestationUID;
 }
 

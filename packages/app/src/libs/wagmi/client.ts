@@ -37,7 +37,7 @@ export const web3Modal = createWeb3Modal({
 
   themeMode: 'dark',
   themeVariables: {
-    '--w3m-font-family': 'Comic Sans MS',
+    '--w3m-font-family': 'Coinbase Sans',
     '--w3m-color-mix-strength': 10,
     '--w3m-accent': '#1998FC',
     '--w3m-color-mix': '#FFFFFF',

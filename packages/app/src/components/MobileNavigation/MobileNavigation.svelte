@@ -54,7 +54,7 @@
 
     color: #000;
     text-align: center;
-    font-family: Montserrat;
+    font-family: Coinbase Sans;
     font-size: 8px;
     font-style: normal;
     font-weight: 700;
