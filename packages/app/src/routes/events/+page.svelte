@@ -1,13 +1,12 @@
 <script>
   import { Timeline } from '$components/Timeline';
-  import { graphqlClient } from '$libs/graphql/client';
-  import { EVENTUR_EVENTS } from '$libs/graphql/queries';
+  import { getEvents } from '$libs/eas';
+
   import { events } from '$stores';
   import { onMount } from 'svelte';
 
   onMount(async () => {
-    let response = await graphqlClient.query({ query: EVENTUR_EVENTS });
-    console.log('🚀 | onMount | response:', response);
+    await getEvents();
   });
 </script>
 

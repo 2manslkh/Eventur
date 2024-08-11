@@ -1,13 +1,26 @@
 import { writable } from 'svelte/store';
-import type { Attendee } from '$types';
+import type { Attendee, AttendeeList } from '$types';
+import { newRSVPAttestation } from '$libs/eas';
 
-const attendees = writable<Attendee[]>([]);
+export const attendees = writable<AttendeeList>({});
 
-export const registerAttendee = (attendee: Omit<Attendee, 'id'>) => {
+export const registerAttendee = async (attendee: Attendee, eventId: string) => {
+  const isAttending = attendee.rsvpStatus == 'yes';
+  const data = [{ type: 'bool', name: 'rsvp', value: isAttending }];
+
+  // Get Event schema and create attestation
+  const uid = await newRSVPAttestation(data, eventId);
+
   attendees.update((currentAttendees) => {
-    const id = currentAttendees.length ? Math.max(...currentAttendees.map((a) => a.id)) + 1 : 1;
-    return [...currentAttendees, { ...attendee, id }];
-  });
-};
+    // Find attendee list using eventId, or create a new one if it doesn't exist
+    const eventAttendees = currentAttendees[eventId] || [];
 
-export default attendees;
+    // Push attendee to list
+    eventAttendees.push(attendee);
+
+    // Update attendees store
+    return { ...currentAttendees, [eventId]: eventAttendees };
+  });
+
+  return uid;
+};

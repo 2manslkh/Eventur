@@ -127,7 +127,7 @@
   Randomize Event
 </button>
 
-<form on:submit|preventDefault={handleSubmit} class="p-4 max-w-lg mx-auto rounded shadow-md">
+<form on:submit|preventDefault={handleSubmit} class="p-4 max-w-lg w-full mx-auto rounded shadow-md">
   <div class="mb-4">
     <label class="block text-sm font-bold mb-2">Event Name</label>
     <input
@@ -154,7 +154,7 @@
   </div>
   <div class="mb-4">
     <label class="block text-sm font-bold mb-2">Description</label>
-    <div class="bg-primary-background-elevated text-left p-2" bind:this={element} />
+    <div class="bg-primary-background-elevated text-left p-2 h-[500px]" bind:this={element} />
     <!-- <TipTap editor={editorInstance} /> -->
   </div>
   <div class="mb-4">
@@ -165,7 +165,7 @@
       class="shadow appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline bg-primary-background-elevated"
       required />
   </div>
-  <div class="mb-4">
+  <!-- <div class="mb-4">
     <label class="block text-sm font-bold mb-2">Cover Image</label>
     <input
       type="file"
@@ -180,7 +180,7 @@
       accept="image/*"
       on:change={handleTicketImageChange}
       class="shadow appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline" />
-  </div>
+  </div> -->
   <button type="submit" class="bg-blue font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
     >Create Event</button>
 </form>

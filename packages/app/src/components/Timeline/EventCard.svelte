@@ -11,7 +11,7 @@
     {#if event.image}
       <img src={event.image} alt={event.title} class="w-full rounded mt-2" />
     {:else}
-      <img src="https://via.placeholder.com/128x128" alt="Placeholder" class="rounded size-32" />
+      <img src="/base.svg" alt="Placeholder" class="rounded size-32" />
     {/if}
     <div class="flex flex-col w-full">
       <div class="text-sm text-secondary-content-light">

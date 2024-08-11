@@ -6,7 +6,7 @@
 <Page>
   <section class="pt-10 sm:pt-16 md:pt-20">
     <div class="container mx-auto px-4 text-center">
-      <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-2 sm:mb-4">Welcome to Event Manager</h1>
+      <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-2 sm:mb-4">Welcome to Eventur</h1>
       <h2
         class="text-2xl sm:text-3xl md:text-4xl flex flex-col sm:flex-row items-center justify-center w-full gap-4 sm:gap-8">
         Built on
@@ -41,15 +41,14 @@
       <h2 class="text-4xl text-center mb-10">Future Implementation</h2>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
         <div class="bg-primary-background-highlight p-6 rounded-lg shadow">
-          <h3 class="text-2xl font-bold mb-4">Create Events</h3>
-          <p>Organize events with detailed information and manage them effortlessly.</p>
+          <h3 class="text-2xl font-bold mb-4">Farcaster Frames</h3>
+          <p>Easily share your crypto event with on Farcaster with Farcaster Frames.</p>
         </div>
 
         <div class="bg-primary-background-highlight p-6 rounded-lg shadow">
-          <h3 class="text-2xl font-bold mb-4">Attest Attendance</h3>
+          <h3 class="text-2xl font-bold mb-4">Guest Reputation Score</h3>
           <p>
-            Verifiably prove that a user has attended an event. <b class="text-blue">Composable</b> with reputation systems
-            on EAS
+            View guest ratings via an honor system that is <b class="text-blue">on-chain.</b>
           </p>
         </div>
         <div class="bg-primary-background-highlight p-6 rounded-lg shadow">

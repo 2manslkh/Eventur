@@ -9,8 +9,20 @@ export interface Toast {
 
 export type ScreenMode = 'desktop' | 'mobile';
 
+export const defaultEvent: Event = {
+  id: '0',
+  title: '',
+  startTime: '',
+  endTime: '',
+  organizer: '',
+  location: '',
+  status: 'Pending',
+  capacity: 0,
+  description: '',
+};
+
 export interface Event {
-  id: number;
+  id: string;
   title: string;
   startTime: string;
   endTime: string;
@@ -25,9 +37,11 @@ export interface Event {
 
 export type RSVPStatus = 'yes' | 'no' | 'pending';
 
+type EventID = string;
+
+export type AttendeeList = Record<EventID, Attendee[]>;
+
 export interface Attendee {
-  id: number;
   address: string;
   rsvpStatus: RSVPStatus;
-  eventId: number;
 }

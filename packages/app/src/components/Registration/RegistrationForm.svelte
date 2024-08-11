@@ -1,6 +1,5 @@
 <script lang="ts">
   import { registerAttendee } from '../../stores/attendees';
-  import { goto } from '$app/navigation';
   import { page } from '$app/stores';
   import { getEventId } from '$libs/util/getEventId';
   import type { RSVPStatus } from '$types';
@@ -10,15 +9,14 @@
 
   let eventId = $derived(getEventId($page.params));
 
-  const handleSubmit = (rsvpStatus: RSVPStatus) => {
+  const handleSubmit = async (rsvpStatus: RSVPStatus) => {
     const address = getCurrentAddressOrNull();
 
     if (!address) {
       throw new Error('No wallet address found. Please connect your wallet.');
     }
 
-    registerAttendee({ address, eventId, rsvpStatus });
-    goto(`/events/${eventId}`);
+    await registerAttendee({ address, rsvpStatus }, eventId);
   };
 </script>
 
