@@ -28,15 +28,19 @@
       <h2 class="text-4xl text-center mb-10">Features</h2>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
         <div class="bg-primary-background-highlight p-6 rounded-lg shadow">
-          <h3 class="text-2xl font-bold mb-4">Create Events</h3>
+          <h3 class="text-2xl font-bold mb-4">Create events on-chain</h3>
           <p>Create events with a familiar and intuitive interface.</p>
         </div>
 
         <div class="bg-primary-background-highlight p-6 rounded-lg shadow">
-          <h3 class="text-2xl font-bold mb-4">Attest Attendance</h3>
+          <h3 class="text-2xl font-bold mb-4">Register for events</h3>
+          <p>Users browse and join exciting events that are available</p>
+        </div>
+
+        <div class="bg-primary-background-highlight p-6 rounded-lg shadow">
+          <h3 class="text-2xl font-bold mb-4">Highly composable</h3>
           <p>
-            Verifiably prove that a user has attended an event. <b class="text-blue">Composable</b> with reputation systems
-            on EAS
+            Eventur is highly <b class="text-blue">composable</b> with other on-chain products
           </p>
         </div>
       </div>
@@ -57,7 +61,12 @@
 
         <div class="bg-primary-background-highlight p-6 rounded-lg shadow">
           <h3 class="text-2xl font-bold mb-4">Token Gating</h3>
-          <p>Allow only holders of whitelisted ERC20 / ERC721 / ERC1155 to attend your events</p>
+          <p>Token gate your events with holders of whitelisted ERC20 / ERC721 / ERC1155 tokens</p>
+        </div>
+
+        <div class="bg-primary-background-highlight p-6 rounded-lg shadow">
+          <h3 class="text-2xl font-bold mb-4">Privacy Preserving Registration</h3>
+          <p>Protect your identity online when registering for events</p>
         </div>
       </div>
     </div>
