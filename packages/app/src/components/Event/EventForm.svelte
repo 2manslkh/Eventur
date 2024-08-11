@@ -26,6 +26,8 @@
   let editorInstance: Editor;
   let element: HTMLElement;
 
+  let isLoading: boolean = false;
+
   onMount(() => {
     editorInstance = new Editor({
       element: element,
@@ -62,48 +64,57 @@
   // };
 
   const handleSubmit = async () => {
-    // Validate form entries
-    if (!title.trim()) {
-      alert('Event name is required');
-      return;
+    isLoading = true;
+    try {
+      // Validate form entries
+      if (!title.trim()) {
+        alert('Event name is required');
+        return;
+      }
+
+      if (!startTime) {
+        alert('Date is required');
+        return;
+      }
+
+      if (!location.trim()) {
+        alert('Location is required');
+        return;
+      }
+
+      if (!description.trim()) {
+        alert('Description is required');
+        return;
+      }
+
+      if (capacity <= 0) {
+        alert('Capacity must be a positive number');
+        return;
+      }
+
+      const coverImageUrl = coverImage ? await uploadImage(coverImage) : '';
+      const ticketImageUrl = ticketImage ? await uploadImage(ticketImage) : '';
+
+      await createEvent({
+        title,
+        startTime,
+        endTime,
+        location,
+        description: editorInstance.getHTML(),
+        capacity,
+        coverImageUrl,
+        ticketImageUrl,
+        status,
+        organizer,
+      });
+      await new Promise((resolve) => setTimeout(resolve, 3000));
+      isLoading = false;
+      goto('/events');
+    } catch {
+      new Error('Failed to create event');
     }
-
-    if (!startTime) {
-      alert('Date is required');
-      return;
-    }
-
-    if (!location.trim()) {
-      alert('Location is required');
-      return;
-    }
-
-    if (!description.trim()) {
-      alert('Description is required');
-      return;
-    }
-
-    if (capacity <= 0) {
-      alert('Capacity must be a positive number');
-      return;
-    }
-
-    const coverImageUrl = coverImage ? await uploadImage(coverImage) : '';
-    const ticketImageUrl = ticketImage ? await uploadImage(ticketImage) : '';
-
-    await createEvent({
-      title,
-      startTime,
-      endTime,
-      location,
-      description: editorInstance.getHTML(),
-      capacity,
-      coverImageUrl,
-      ticketImageUrl,
-      status,
-      organizer,
-    });
-    goto('/events');
+    isLoading = false;
+    // Sleep for 3 seconds
   };
 
   const uploadImage = async (file: File): Promise<string> => {
@@ -192,6 +203,13 @@
       on:change={handleTicketImageChange}
       class="shadow appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline" />
   </div> -->
-  <button type="submit" class="bg-blue font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-    >Create Event</button>
+  <button
+    type="submit"
+    class="f-center btn-block bg-blue font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+    {#if isLoading}
+      <div class="loading loading-spinner"></div>
+    {:else}
+      Create Event
+    {/if}
+  </button>
 </form>

@@ -20,7 +20,9 @@
       }
 
       await registerAttendee({ address, rsvpStatus }, eventId);
-    } catch {}
+    } catch {
+      throw new Error('Failed to RSVP');
+    }
     isLoading = false;
   };
 </script>
