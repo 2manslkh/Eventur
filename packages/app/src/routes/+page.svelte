@@ -7,19 +7,19 @@
   <section class="pt-10 sm:pt-16 md:pt-20">
     <div class="container mx-auto px-4 text-center">
       <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-2 sm:mb-4">Welcome to Eventur</h1>
+      <p class="text-base sm:text-lg mt-4 mb-6 sm:mb-8">Create, manage, and attend events with ease.</p>
       <h2
         class="text-2xl sm:text-3xl md:text-4xl flex flex-col sm:flex-row items-center justify-center w-full gap-4 sm:gap-8">
         Built on
         <img src={'/base-logo.svg'} class="h-8 sm:h-10 md:h-12" alt="Base logo" />
       </h2>
-      <h3 class="text-lg flex flex-col sm:flex-row items-center justify-center w-full gap-2">
+      <h3 class="text-lg flex flex-col sm:flex-row items-center justify-center w-full gap-2 mb-6 sm:mb-8">
         Powered by
         <div class="text-lg f-center">
           <img src={'/eas-logo.png'} class="h-8 sm:h-10 md:h-12" alt="EAS Logo" />
           Ethereum Attestation Service
         </div>
       </h3>
-      <p class="text-base sm:text-lg mb-6 sm:mb-8 mt-4">Create, manage, and attend events with ease.</p>
       <a href="/events" class="btn btn-primary text-sm sm:text-base">Get Started</a>
     </div>
   </section>
