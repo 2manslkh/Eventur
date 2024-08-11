@@ -9,7 +9,8 @@
 <div
   class="flex flex-col md:flex-row items-center justify-between max-w-[1440px] px-4 lg:px-10 w-full py-4 text-primary-content">
   <!-- Left Section -->
-  <a class="flex justify-between items-start md:w-1/3" href="/">
+  <a class="flex gap-4 items-start md:w-1/3" href="/">
+    <img src="/Eventur-logo.png" alt="logo" class="size-[30px]" />
     <div class="title-subsection-semibold">Eventur</div>
   </a>
 
